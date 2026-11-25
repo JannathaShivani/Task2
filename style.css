@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: navy;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: navy;
+}
+
+header {
+    background-color: white;
+    color: navy;
+    text-align: center;
+    padding: 20px;
+}
+
+header img {
+    border-radius: 50%;
+}
+
+header h2 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 10px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: navy;
+}
+
+header {
+    background-color: white;
+    color: navy;
+    text-align: center;
+    padding: 20px;
+}
+
+header img {
+    border-radius: 50%;
+}
+
+header h2 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 10px;
+}
+
+nav {
+    background-color: navy;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: dodgerblue;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: navy;
+}
+
+header {
+    background-color: white;
+    color: navy;
+    text-align: center;
+    padding: 20px;
+}
+
+header img {
+    border-radius: 50%;
+}
+
+header h2 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 10px;
+}
+
+nav {
+    background-color: navy;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: dodgerblue;
+}
+
+#Home {
+    background-color: navy;
+    color: white;
+    padding: 80px 30px;
+}
+
+#Home h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: navy;
+}
+
+/* Header */
+header {
+    background-color: white;
+    color: navy;
+    text-align: center;
+    padding: 20px;
+}
+
+header img {
+    border-radius: 50%;
+}
+
+header h2 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 10px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: navy;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: dodgerblue;
+}
+
+/* Home Section */
+#Home {
+    background-color: navy;
+    color: white;
+    padding: 80px 30px;
+}
+
+#Home h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* About Section */
+#About {
+    background-color: white;
+    padding: 40px;
+}
+
+#About h2 {
+    margin-bottom: 15px;
+}
+
+#About p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Courses Section */
+#Courses {
+    background-color: lightblue;
+    padding: 40px;
+}
+
+#Courses h2 {
+    margin-bottom: 20px;
+}
+
+#Courses ul {
+    padding-left: 30px;
+    line-height: 2;
+}
+
+/* YouTube Video */
+iframe {
+    margin: 20px;
+    max-width: 100%;
+}
+
+/* Registration Section */
+#Registration {
+    background-color: aliceblue;
+    padding: 40px;
+}
+
+#Registration h2 {
+    margin-bottom: 20px;
+}
+
+/* Form */
+form {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    background-color: navy;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: dodgerblue;
+}
+
+/* Footer */
+footer {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer h3 {
+    margin: 10px;
+}
+
+footer p {
+    margin: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+
+    nav a {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    #Home h1 {
+        font-size: 28px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
