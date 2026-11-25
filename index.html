@@ -1,106 +1,641 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Resto - Restaurant</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #1b1511;
+            color: white;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        :root {
+            --gold: #ffc52e;
+            --dark: #17110d;
+            --cream: #fff4e5;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: rgba(12, 8, 5, 0.98);
+            min-height: 92px;
+            padding: 12px 4%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #766039;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 43px;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            color: var(--gold);
+            font-size: 55px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            padding: 10px 0;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .book-btn {
+            background-color: var(--gold);
+            color: #1b1511;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+        /* HOME SECTION */
+
+        .home {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            padding: 40px 5%;
+
+            background:
+                linear-gradient(90deg,
+                rgba(10, 6, 3, 0.95),
+                rgba(10, 6, 3, 0.3)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home-content {
+            max-width: 650px;
+        }
+
+        .home h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 55px;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .home h1 {
+            font-size: 70px;
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .home h1 span {
+            color: var(--gold);
+        }
+
+        .home p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: black;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            background-color: white;
+        }
+
+        /* FEATURES */
+
+        .features {
+            background-color: var(--cream);
+            color: #201812;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 4%;
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 5px 25px;
+            flex: 1;
+            border-right: 1px solid #b9a88e;
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            background-color: #1b1511;
+            color: var(--gold);
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .feature h3 {
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #514638;
+        }
+
+        /* MENU */
+
+        .menu {
+            padding: 20px 4% 35px;
+            text-align: center;
+            background-color: #1b1511;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+
+        .section-heading .line {
+            width: 20%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .section-heading h1 {
+            font-size: 45px;
+        }
+
+        .section-heading span {
+            color: var(--gold);
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background-color: var(--gold);
+            color: #17110d;
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 5px 20px rgba(255, 197, 46, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            padding: 8px;
+            font-size: 22px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #100c09;
+            border-top: 1px solid #766039;
+            padding: 22px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 22px;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .home h1 {
+                font-size: 55px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .logo {
+                font-size: 32px;
+            }
+
+            .logo-icon {
+                font-size: 40px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 15px;
+            }
+
+            .home {
+                min-height: 400px;
+                padding: 30px 20px;
+            }
+
+            .home h2 {
+                font-size: 38px;
+            }
+
+            .home h1 {
+                font-size: 42px;
+            }
+
+            .home p {
+                font-size: 16px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid #b9a88e;
+                padding: 15px 5px;
+            }
+
+            .feature:last-child {
+                border-bottom: none;
+            }
+
+            .section-heading {
+                gap: 12px;
+            }
+
+            .section-heading h1 {
+                font-size: 30px;
+            }
+
+            .section-heading .line {
+                width: 12%;
+            }
+
+            .items {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                max-width: 350px;
+                width: 100%;
+                margin: auto;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <header style="background-color: white; color: navy;">
-         <img src="https://i.ytimg.com/vi/9kYIkkadZkU/maxresdefault.jpg"
-            height="300" width="300">
 
-        <h2>SRU engineering college</h2>
-        <p>Learn,Grow,Achieve</p>
+    <!-- HEADER -->
+
+    <header>
+
+        <h1 class="logo">
+            <span class="logo-icon">♨</span>
+            Resto
+        </h1>
+
         <nav>
-            <a href="#Home">Home</a>
-            <a href="About">About</a>
-            <a href="Courses">Courses</a>
-            <a href="Registration">Registration</a>
+            <a href="#home" class="active">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <main>
-            <section id="Home">
-                <h1>
-                    Student Registration Profile
-                </h1>
-                <p>
-                    AI Overview
-                    SRU most commonly refers to SR University in Warangal, Telangana, India, though the acronym can also
-                    stand for several other institutions and organizations.</p>
 
-            </section>
-            <section="About">
-                <h2>About</h2>
-                <p>SR University is a 50-year-old conglomerate of educational institutions with more than 1,00,000
-                    students and 17,000 teaching and non-teaching staff members.</p>
-                    <button>Learn More -></button>
-                </section>
-                <section id="Courses">
-            <h2>Our Courses</h2>
+        <a href="#contact" class="book-btn">
+            🍴 Book a Table
+        </a>
 
-            <ul>
-                <li>Computer Science & Engineering</li>
-                <li>Electronics & Communication Engineering</li>
-                <li>Mechanical Engineering</li>
-                <li>Civil Engineering</li>
-                <li>Information Technology</li>
-            </ul>
-        </section>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9kYIkkadZkU?si=mr5RyrxZcddPRXux" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <section id="Registration">
-
-    <h2>Student Registration</h2>
-
-    <form>
-
-        <label>Student Name:</label>
-        <input type="text" placeholder="Enter your name">
-        <br><br>
-
-        <label>Email:</label>
-        <input type="email" placeholder="Enter your email">
-        <br><br>
-
-        <label>Mobile Number:</label>
-        <input type="tel" placeholder="Enter your mobile number">
-        <br><br>
-
-        <label>Gender:</label>
-        <input type="radio" name="gender"> Male
-        <input type="radio" name="gender"> Female
-        <input type="radio" name="gender"> Other
-        <br><br>
-
-        <label>Skills:</label>
-        <input type="checkbox"> Java
-        <input type="checkbox"> Python
-        <input type="checkbox"> Web Development
-        <input type="checkbox"> Data Science
-        <br><br>
-
-        <label>Graduation Year:</label>
-
-        <select>
-            <option>Select Year</option>
-            <option>2026</option>
-            <option>2027</option>
-            <option>2028</option>
-            <option>2029</option>
-        </select>
-
-        <br><br>
-
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-
-    </form>
-
-</section>
-<link rel="stylesheet" href="style.css">
-        </main>
     </header>
+
+    <!-- HOME -->
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h2>Welcome to Resto</h2>
+
+            <h1>
+                Good Food <br>
+                <span>Good Mood</span>
+            </h1>
+
+            <p>
+                Delicious food. Great ambiance.
+                Unforgettable experience.
+            </p>
+
+            <a href="#menu" class="explore-btn">
+                Explore Our Menu &nbsp; →
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features" id="about">
+
+        <div class="feature">
+
+            <div class="feature-icon">♨</div>
+
+            <div>
+                <h3>Fresh Ingredients</h3>
+                <p>Always fresh & healthy</p>
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">🍴</div>
+
+            <div>
+                <h3>Expert Chefs</h3>
+                <p>Culinary masters at work</p>
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="feature-icon">☻</div>
+
+            <div>
+                <h3>Great Ambience</h3>
+                <p>Perfect for every occasion</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MENU -->
+
+    <section class="menu" id="menu">
+
+        <div class="section-heading">
+
+            <div class="line"></div>
+
+            <h1>Our <span>Menu</span></h1>
+
+            <div class="line"></div>
+
+        </div>
+
+        <div class="items">
+
+            <div class="card">
+
+                <img
+                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500"
+                alt="Pizza">
+
+                <h2>Pizza</h2>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500"
+                alt="Burger">
+
+                <h2>Burger</h2>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500"
+                alt="Pasta">
+
+                <h2>Pasta</h2>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500"
+                alt="Desserts">
+
+                <h2>Desserts</h2>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+    <section class="menu" id="gallery">
+
+        <div class="section-heading">
+
+            <div class="line"></div>
+
+            <h1>Food <span>Gallery</span></h1>
+
+            <div class="line"></div>
+
+        </div>
+
+        <div class="items">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500" alt="Fresh salad">
+                <h2>Fresh Food</h2>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500" alt="Delicious meal">
+                <h2>Healthy Meals</h2>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Restaurant food">
+                <h2>Special Dishes</h2>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" alt="Sweet desserts">
+                <h2>Sweet Treats</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="menu" id="contact">
+
+        <div class="section-heading">
+            <div class="line"></div>
+            <h1>Contact <span>Us</span></h1>
+            <div class="line"></div>
+        </div>
+
+        <p>📍 Hyderabad, India</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉ restaurant@example.com</p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Resto Restaurant. All Rights Reserved.
+        </p>
+
+        <div class="social-icons">
+
+            <a href="#" aria-label="Facebook">f</a>
+
+            <a href="#" aria-label="Instagram">◎</a>
+
+            <a href="#" aria-label="YouTube">▶</a>
+
+            <a href="#" aria-label="X">𝕏</a>
+
+        </div>
+
+    </footer>
+
 </body>
 
 </html>
